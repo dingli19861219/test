@@ -1,25 +1,15 @@
-server:
-  port: 1001
-  
-  
-eureka:
-  client:
-    register-with-eureka: false
-    service-url: 
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  
-      
-      
-
+﻿
 spring:
-  cloud:
-    config:
-      server:
-        svn:
-          uri: svn://10.4.12.48/sinosoft_src/SinoSystem/team-concert/dev
-          username: username
-          password: password
-        default-label: trunk
   profiles:
-    active: subversion
+    active: 
+    - dev
+---
+spring:
+  profiles: dev #开发环境
   application:
-    name: spring-cloud-config-server
+    name: spring-cloud-config-dev
+---
+spring:
+  profiles: dev #测试环境
+  application:
+    name: spring-cloud-config-test
